@@ -67,7 +67,7 @@ public class Reader {
     public void takeBook (Book... books) {
         System.out.print(readerName + " взял книги: ");
         for (Book book: books) {
-            System.out.println(book);
+            System.out.println(book.getInfoBook());
         }
     }
 
@@ -85,7 +85,7 @@ public class Reader {
     public void returnBook (Book... books) {
         System.out.print(readerName + " вернул книги: ");
         for (Book book: books) {
-            System.out.println(book);
+            System.out.println(book.getInfoBook());
         }
     }
 }
