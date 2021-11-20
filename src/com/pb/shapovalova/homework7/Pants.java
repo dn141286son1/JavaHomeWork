@@ -1,21 +1,17 @@
 package com.pb.shapovalova.homework7;
 
-public class Pants extends Clothes implements ManClothes, WomenClothes {
-
-    private String name;
-
-    public Pants (String color, int coast, Size size, String name) {
-        super("черный", 300, Size.XS);
-        this.name = name;
+ class Pants extends Clothes implements ManClothes, WomenClothes {
+    public Pants(Size size, float price, String color) {
+        super(size, price, color);
     }
 
     @Override
     public void dressMan() {
-        System.out.println(color + coast + size + name);
+        System.out.println("мужчина одевает штаны " + getInfo());
     }
 
     @Override
     public void dressWomen() {
-        System.out.println(color + coast + size + name);
+        System.out.println("женщина одевает штаны " + getInfo());
     }
 }

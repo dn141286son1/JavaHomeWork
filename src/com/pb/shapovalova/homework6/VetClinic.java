@@ -1,42 +1,47 @@
 package com.pb.shapovalova.homework6;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
 
 public class VetClinic {
-
     public static void main(String[] args) throws Exception {
+        Cat cat = new Cat("Барсик", "Черный");
+        cat.setFood("Молоко и мясо");
+        cat.setLocation("Квартира");
 
-        Dog dog = new Dog("кости","парк", "Собака");
-        Cat cat = new Cat("рыбу","дом", "Кот");
-        Horse horse = new Horse("траву","поле", "Лошадь");
+        Cat cat2 = new Cat("Рыжик", "рыжий");
+        cat2.setFood("Молоко и мясо");
+        cat2.setLocation("Улица");
 
-        dog.sleep();
-        dog.eat();
-        dog.makeNoise();
+        Horse horse = new Horse("Буцефал", 89);
+        horse.setFood("Овес и яблоки");
+        horse.setLocation("Ипподром");
 
-        cat.sleep();
-        cat.eat();
-        cat.makeNoise();
+        Dog dog = new Dog("Шарик", "дворняга");
+        dog.setFood("Каша и мясо");
+        dog.setLocation("Двор");
 
-        horse.sleep();
-        horse.eat();
-        horse.makeNoise();
+        Class clazzCat = Cat.class;
+        Class clazzDog = Dog.class;
 
-        //Veterinarian vt = new Veterinarian();
-        //Class clazz = vt.getClass();
+        Animal[] animals = new Animal[] {cat, cat2, horse, dog};
 
-        Class vtsClazz = Class.forName("com.pb.shapovalova.homework6.Veterinarian");
+        Class clazz = Class.forName("homework6.Veterinarian");
 
-        Constructor cons = vtsClazz.getConstructor(new Class[] {String.class});
-        Object obj = cons.newInstance();
-        if (obj instanceof Animal) {
-            ((Veterinarian) obj).treatAnimal();
+        //Constructor constr = clazz.getConstructor();
+        //Object vet = constr.newInstance();
+
+        Constructor constr = clazz.getConstructor(String.class);
+        Object vet = constr.newInstance("Айболит");
+
+        Method treatAnimal = clazz.getMethod("treatAnimal", Animal.class);
+
+        for(Animal animal: animals) {
+            treatAnimal.invoke(vet, animal);
         }
 
-    //    Animal[] animals = {dog, cat, horse};
-
-      //  for (int i = 0; i < animals.length; i++){
-      //      vts.treatAnimal();
-        }
+        //Veterinarian.class.newInstance().treatAnimal(cat);
+        Class catClazz = Cat.class;
+        Class catClazz2 = cat2.getClass();
     }
 }

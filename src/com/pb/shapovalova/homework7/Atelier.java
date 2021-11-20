@@ -9,47 +9,35 @@ public class Atelier {
     }
 
     public static void main(String[] args) {
+        Clothes[] clothes = new Clothes[] {
+                new Tshirt(Size.S, 58, "желтый"),
+                new Pants(Size.M, 105.50f, "черный"),
+                new Skirt(Size.M, 78.45f, "зеленый"),
+                new Tie(Size.XXS, 15.20f, "красный")
+        };
 
-    }
-    public static void dressMan (Clothes[] clothes) {
-        System.out.println("Мужская одежда:");
-        for (Clothes clothe : clothes) {
-            if (clothe instanceof Pants || clothe instanceof Tshirt || clothe instanceof Tie) {
-                ((ManClothes) clothe).dressMan();
-            }
-}
+        dressMan(clothes);
+
+        System.out.println();
+
+        dressWomen(clothes);
     }
 
-    public static void dressWomen (Clothes[] clothes) {
-        System.out.println("Женская одежда:");
-        for (Clothes clothe : clothes) {
-            if (clothe instanceof Pants || clothe instanceof Tshirt || clothe instanceof Skirt) {
-                ((WomenClothes) clothe).dressWomen();
+    //-------------------------------- methods ---------------------------
+
+    private static void dressMan(Clothes[] clothes) {
+        for(Clothes c: clothes) {
+            if (c instanceof ManClothes) {
+                ((ManClothes) c).dressMan();
             }
         }
     }
 
-    Tshirt tshirt = new Tshirt("белый", 200, Size.XXS, "рубашка");
-    Pants pants = new Pants("черный", 300, Size.XS, "штаны");
-    Tie tie = new Tie("голубой", 50, Size.M, "галстук");
-    Skirt skirt = new Skirt("серый", 150, Size.S, "юбка");
-
-    Clothes[] clothes = new Clothes[]{tshirt, pants, tie, skirt};
-
-    Class clazz = Class.forName("homework7.Atelier");
-
-    Constructor constr = clazz.getConstructor(String.class);
-    Object atel = constr.newInstance("Одежка");
-
-    Method dressWomen = clazz.getMethod("dressWomen", Clothes.class);
-
-        for (Clothes clothe: clothes) {
-        dressWomen.invoke(atel, clothe);
-    }
-
-    Method dressMan = clazz.getMethod("dressMan", Clothes.class);
-
-        for (Clothes clothe: clothes) {
-        dressMan.invoke(atel, clothe);
+    private static void dressWomen(Clothes[] clothes) {
+        for(Clothes c: clothes) {
+            if (c instanceof WomenClothes) {
+                ((WomenClothes) c).dressWomen();
+            }
+        }
     }
 }

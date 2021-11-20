@@ -1,14 +1,14 @@
 package com.pb.shapovalova.homework6;
 
+import java.util.Objects;
+
 public class Animal {
 
-    private String food;
-    private String location;
-    private String name;
+    protected String food;
+    protected String location;
+    protected final String name;
 
-    public Animal(String food, String location, String name) {
-        this.food = food;
-        this.location = location;
+    public Animal(String name) {
         this.name = name;
     }
 
@@ -17,7 +17,9 @@ public class Animal {
     }
 
     public void setFood(String food) {
-        this.food = food;
+        if (food != null && !food.isEmpty()) {
+            this.food = food;
+        }
     }
 
     public String getLocation() {
@@ -32,17 +34,30 @@ public class Animal {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void makeNoise() {
+        System.out.println("животное издает звук");
     }
 
-    public void sleep(){
-        System.out.println(name + " спит");
+    public void eat() {
+        System.out.println("животное ест");
     }
 
-    public void eat(){
+    public void sleep() {
+        System.out.println("животное спит");
     }
 
-    public void makeNoise(){
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Animal animal = (Animal) o;
+        return Objects.equals(food, animal.food)
+                && Objects.equals(location, animal.location)
+                && Objects.equals(name, animal.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(food, location, name);
     }
 }

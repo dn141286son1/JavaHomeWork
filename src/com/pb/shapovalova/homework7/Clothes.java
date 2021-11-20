@@ -1,14 +1,30 @@
 package com.pb.shapovalova.homework7;
 
-public abstract class Clothes {
+ abstract class Clothes {
+    protected final Size size;
+    protected final float price;
+    protected final String color;
 
-    public String color;
-    public int coast;
-    public Size size;
-
-    public Clothes(String color, int coast, Size size) {
-        this.color = color;
-        this.coast = coast;
+    public Clothes(Size size, float price, String color) {
         this.size = size;
+        this.price = price;
+        this.color = color;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public String getInfo() {
+        return "размер " + size.name() + " " + size.getEuroSize() + " " + size.getDescription() +
+                " цвет " + color + " цена " + price;
     }
 }

@@ -2,53 +2,31 @@ package com.pb.shapovalova.homework7;
 
 import jdk.nashorn.internal.ir.CaseNode;
 
-public enum Size {
+enum Size {
+    XXS("Детский размер", 32),
+    XS( 34),
+    S( 36),
+    M( 38),
+    L( 40);
 
-    XXS,
-    XS,
-    S,
-    M,
-    L;
-
-    String description;
-    int euroSize;
+    private String description;
+    private int euroSize;
 
     Size(String description, int euroSize) {
         this.description = description;
         this.euroSize = euroSize;
     }
 
-    public void getDescription () {
-        switch () {
-            case XS:
-            case S:
-            case M:
-            case L:
-                System.out.println("Взрослый размер");
-                break;
-            case XXS:
-                System.out.println("Детский размер");
-                break;
-        }
+    Size(int euroSize) {
+        this.description = "Взрослый размер";
+        this.euroSize = euroSize;
     }
 
-    public void getEuroSize () {
-        switch () {
-            case XXS:
-                System.out.println("32");
-                break;
-            case XS:
-                System.out.println("34");
-                break;
-            case S:
-                System.out.println("36");
-                break;
-            case M:
-                System.out.println("38");
-                break;
-            case L:
-                System.out.println("40");
-                break;
-        }
+    public String getDescription() {
+        return description;
+    }
+
+    public int getEuroSize() {
+        return euroSize;
     }
 }
