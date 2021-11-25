@@ -1,11 +1,11 @@
 package com.pb.shapovalova.homework8;
 
-public class WrongPasswordException extends RuntimeException{
+public class WrongPasswordException extends Exception{
 
     public WrongPasswordException() {
     }
 
-    public WrongPasswordException (String messagePassword) {
-        super(messagePassword);
+    public WrongPasswordException (String message) {
+        super(message);
     }
 }
