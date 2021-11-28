@@ -7,14 +7,14 @@ public class Main {
         NumBox<Float> floatNumBox = new NumBox<>(5);
         NumBox<Integer> integerNumBox = new NumBox<>(4);
 
-        floatNumBox.set(0, 1.1f);
+        floatNumBox.set(0, 1.7f);
         floatNumBox.set(1, 1.2f);
         floatNumBox.set(2, 1.3f);
         floatNumBox.set(3, 1.4f);
 
         integerNumBox.set(0, 10);
-        integerNumBox.set(1, 11);
-        integerNumBox.set(2, 12);
+        integerNumBox.set(1, 185);
+        integerNumBox.set(2, 74);
 
         try{
             floatNumBox.add(1.5f);

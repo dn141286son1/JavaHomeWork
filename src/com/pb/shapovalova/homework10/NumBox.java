@@ -23,7 +23,7 @@ public class NumBox <T extends Number> {
     public int length(){
         int currentLength = 0;
         for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] == null){
+            if (numbers[i] != null){
                 currentLength++;
             }
         }
