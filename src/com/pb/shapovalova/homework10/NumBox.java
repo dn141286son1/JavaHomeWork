@@ -9,10 +9,12 @@ public class NumBox <T extends Number> {
     }
 
     public void add(T num) throws Exception {
-        for (int i = 0; i < numbers.length; i++){
-            if (numbers[i] == null){
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] == null) {
                 numbers[i] = num;
-            }else throw new Exception("Массив заполнен!");
+                break;
+            }else if (i == numbers.length - 1){
+                throw new Exception("Массив заполнен!");}
         }
     }
 
@@ -37,7 +39,7 @@ public class NumBox <T extends Number> {
                 sum += i.doubleValue();
             }
         }
-        double average = sum / numbers.length;
+        double average = sum / length();
         return average;
     }
 
