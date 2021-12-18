@@ -1,7 +1,7 @@
-package com.company.pb.hw11.services.impl;
+package com.pb.shapovalova.hw11.services.impl;
 
-import com.company.pb.hw11.model.Person;
-import com.company.pb.hw11.services.interfaces.PhoneBook;
+import com.pb.shapovalova.hw11.model.Person;
+import com.pb.shapovalova.hw11.services.interfaces.PhoneBook;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
