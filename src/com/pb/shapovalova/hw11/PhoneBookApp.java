@@ -1,4 +1,4 @@
-package com.company.pb.hw11;
+package com.pb.shapovalova.hw11;
 
 import com.company.pb.hw11.model.Person;
 import com.company.pb.hw11.services.impl.PhoneBookImp;
