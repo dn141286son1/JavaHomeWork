@@ -1,4 +1,4 @@
-package com.company.pb.hw11.model;
+package com.pb.shapovalova.hw11.model;
 
 import java.io.Serializable;
 import java.util.Date;
