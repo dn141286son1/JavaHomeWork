@@ -1,6 +1,6 @@
-package com.company.pb.hw11.services.interfaces;
+package com.pb.shapovalova.hw11.services.interfaces;
 
-import com.company.pb.hw11.model.Person;
+import com.pb.shapovalova.hw11.model.Person;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
